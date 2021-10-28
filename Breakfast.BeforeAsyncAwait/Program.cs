@@ -7,6 +7,8 @@ namespace Breakfast.BeforeAsyncAwait
     {
         static void Main(string[] args)
         {
+            var startTime = DateTime.Now;
+            
             Coffee cup = PourCoffee();
             Console.WriteLine("coffee is ready");
 
@@ -23,32 +25,19 @@ namespace Breakfast.BeforeAsyncAwait
 
             Juice oj = PourOJ();
             Console.WriteLine("oj is ready");
-            Console.WriteLine("Breakfast is ready!");
+            Console.WriteLine("Breakfast is ready!\n");
+
+            var endTime = DateTime.Now;
+
+            Console.WriteLine("Total Time : " + (endTime - startTime).Seconds + " minutes");
         }
 
-        private static Juice PourOJ()
+        // Methods
+
+        private static Coffee PourCoffee()
         {
-            Console.WriteLine("Pouring orange juice");
-            return new Juice();
-        }
-
-        private static void ApplyJam(Toast toast) => 
-            Console.WriteLine("Putting jam on the toast");
-
-        private static void ApplyButter(Toast toast) => 
-            Console.WriteLine("Putting butter on the toast");
-
-        private static Toast ToastBread(int slices)
-        {
-            for (int slice = 0; slice < slices; slice++)
-            {
-                Console.WriteLine("Putting a slice of bread in the toaster");
-            }
-            Console.WriteLine("Start toasting...");
-            Task.Delay(3000).Wait();
-            Console.WriteLine("Remove toast from toaster");
-
-            return new Toast();
+            Console.WriteLine("Pouring coffee");
+            return new Coffee();
         }
 
         private static Bacon FryBacon(int slices)
@@ -79,10 +68,33 @@ namespace Breakfast.BeforeAsyncAwait
             return new Egg();
         }
 
-        private static Coffee PourCoffee()
+        private static Toast ToastBread(int slices)
         {
-            Console.WriteLine("Pouring coffee");
-            return new Coffee();
+            for (int slice = 0; slice < slices; slice++)
+            {
+                Console.WriteLine("Putting a slice of bread in the toaster");
+            }
+            Console.WriteLine("Start toasting...");
+            Task.Delay(3000).Wait();
+            Console.WriteLine("Remove toast from toaster");
+
+            return new Toast();
+        }
+        
+        private static void ApplyJam(Toast toast)
+        {
+            Console.WriteLine("Putting jam on the toast");
+        }
+
+        private static void ApplyButter(Toast toast)
+        {
+            Console.WriteLine("Putting butter on the toast");
+        }
+        
+        private static Juice PourOJ()
+        {
+            Console.WriteLine("Pouring orange juice");
+            return new Juice();
         }
     }
 }
