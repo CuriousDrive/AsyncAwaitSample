@@ -29,7 +29,7 @@ namespace Breakfast.BeforeAsyncAwait
 
             var endTime = DateTime.Now;
 
-            Console.WriteLine("Total Time : " + (endTime - startTime).Seconds + " minutes");
+            Console.WriteLine("Total Time : " + (endTime - startTime).Seconds + " minutes\n");
         }
 
         // Methods
@@ -58,7 +58,6 @@ namespace Breakfast.BeforeAsyncAwait
 
         private static Egg FryEggs(int howMany)
         {
-            Console.WriteLine("Warming the egg pan...");
             Task.Delay(3000).Wait();
             Console.WriteLine($"cracking {howMany} eggs");
             Console.WriteLine("cooking the eggs ...");
