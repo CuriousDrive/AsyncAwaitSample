@@ -1,6 +1,6 @@
 namespace Breakfast.AfterAsyncAwait
 {
-    public class Egg
+    public class Coffee
     {
 
     }
