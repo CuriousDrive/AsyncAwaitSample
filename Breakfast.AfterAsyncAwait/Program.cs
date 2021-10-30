@@ -58,10 +58,9 @@ namespace Breakfast.AfterAsyncAwait
 
         private static Egg FryEggs(int howMany)
         {
-            Task.Delay(3000).Wait();
             Console.WriteLine($"cracking {howMany} eggs");
             Console.WriteLine("cooking the eggs ...");
-            Task.Delay(3000).Wait();
+            Task.Delay(6000).Wait();
             Console.WriteLine("Put eggs on plate");
 
             return new Egg();
