@@ -40,6 +40,16 @@ namespace Breakfast.AfterAsyncAwait
             return new Coffee();
         }
 
+        private static Egg FryEggs(int howMany)
+        {
+            Console.WriteLine($"cracking {howMany} eggs");
+            Console.WriteLine("cooking the eggs ...");
+            Task.Delay(6000).Wait();
+            Console.WriteLine("Put eggs on plate");
+
+            return new Egg();
+        }
+
         private static Bacon FryBacon(int slices)
         {
             Console.WriteLine($"putting {slices} slices of bacon in the pan");
@@ -55,17 +65,7 @@ namespace Breakfast.AfterAsyncAwait
 
             return new Bacon();
         }
-
-        private static Egg FryEggs(int howMany)
-        {
-            Console.WriteLine($"cracking {howMany} eggs");
-            Console.WriteLine("cooking the eggs ...");
-            Task.Delay(6000).Wait();
-            Console.WriteLine("Put eggs on plate");
-
-            return new Egg();
-        }
-
+        
         private static Toast ToastBread(int slices)
         {
             for (int slice = 0; slice < slices; slice++)
